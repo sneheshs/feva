@@ -1,0 +1,1606 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+   overscroll-behavior-x: contain; 
+}
+
+body {
+    background: #353535;
+    border: 0px;
+    border-spacing: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tool-bar {
+    background: #FFFFFF;
+    display: flex;
+    height: 25px;
+    width: 100vw;
+}
+
+.toobar-logo-and-project {
+    width: 25vw;
+    display: flex;
+
+}
+
+.toolbar-logo{
+    margin: 2px;
+}
+
+.select-project-container {
+    width: 100%;
+}
+
+.select-dataset-container {
+
+}
+
+.toolbar-button {
+    padding: 0px;
+    border-radius: 0px;
+    border: 0px;
+    height: 21px;
+    width: 21px;
+}
+
+.toolbar-button.undo {
+    margin-left: 2px;
+    background: url('assets/undo.png') 0px 0px / cover no-repeat white;
+}
+
+.toolbar-button.redo {
+    margin-left: 2px;
+    background: url('assets/redo.png') 0px 0px / cover no-repeat white;
+}
+
+.toolbar-button.import {
+      margin-left: 2px;
+      background: url('assets/import.png') 0px 0px / cover no-repeat white;
+
+}
+
+
+.toolbar-button.new-project {
+    background: url('assets/add.png') 0px 0px / cover no-repeat
+}
+
+option[value=""][disabled] {
+        display: none;
+}
+
+.tool-icon-container {
+    margin: 2px;
+}
+
+/**
+    Notification box
+*/
+.notifications {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    width: 18%;
+    height: 15%;
+    z-index: 900;
+    opacity: 0;
+    border: 3px solid #73AD21;
+    transition: 0.5s ;
+    background-color:  #fff;
+    text-align: center;
+    box-shadow: 10px 10px 30px grey;
+    border: 1px transparent;
+    border-color: #555;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.notification-message {
+    font-size: 2.0vmin;
+    margin: auto;
+    padding: 5% 5% 0px 5%;
+}
+
+.confirmation-btn {
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 12px;
+    width: 50%;
+}
+
+.option-container {
+    height: inherit;
+    margin-left: auto;
+}
+
+.toolbar-button.option {
+    background: url('assets/options.png') 0px 0px / cover no-repeat white;
+    font-size: 12px;
+}
+
+.option-title {
+    text-align: center;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px black;
+    font-size: 20px;
+}
+
+.option-list {
+    background: white;
+    border-radius: 5px;
+    color: black;
+    display: none;
+    position: absolute;
+    right: 0%;
+    top: 25px;
+    z-index: 510;
+    padding: 5px;
+    box-shadow: inset 0px 0px 3px black;
+}
+
+.slider-container {
+    display: flex;
+}
+
+.option-font {
+    color: black;
+    display: inline-block;
+    font-weight: bold;
+    margin: 5px;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 5px;
+}
+
+.option-font.text {
+    width: 100px;
+    padding-left: 5px;
+}
+
+.option-font.value {
+    padding: 0px 5px 0px 5px;
+    width: 30px;
+    text-align: center;
+}
+
+.slider-input {
+    padding: 1px 5px 0px 5px;
+    margin: 5px;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 5px;
+    height: 18px;
+}
+
+input[type=range] {
+    height: fit-content;
+}
+
+.toggle-container {
+    display: flex;
+}
+
+.switch-container {
+    margin: 5px;
+    flex: 0%;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 18px;
+    margin: 0px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 17px;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 11px;
+    width: 11px;
+    left: calc(100% - 14px);
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    left: 6px;
+}
+
+.toolbar-button.close {
+    background: url('assets/power_settings_new.png') 0px 0px / cover no-repeat white;
+    opacity: 1;
+}
+
+.toolbar-button.close:hover {
+    opacity: 0.5;
+}
+/* ############################## */
+/* Dataset box CSS */
+    .dataset-selection {
+        border-radius: 2px;
+        border-radius: 2px;
+        height: 20px;
+        height: 20px;
+        width: calc(25vw - 60px);
+        width: calc(25vw - 60px);
+    }
+    .dataset-btn {
+        border-radius: 2px;
+        height: 20px;
+        width: calc(25vw - 60px);    
+    }
+    .dialog-box{
+        margin-top: 10px;
+        position: absolute;
+        z-index: 610;
+    }
+    .dailog-fixed-height-container{
+        z-index: 610;
+        border-style: solid;
+        border-radius: 10px;
+        display: inline-block;
+        background-color: #cad4e3dd;
+        width: 60vw;
+        height: 50vh;
+        overflow: auto;
+        margin-top: 20vh;
+        margin-left: 20vw;
+    }
+    .ListTile{
+        display: inline-block;
+        margin: 10px;
+        border: solid 1px;
+        border-radius: 10%;
+        padding: 5px;
+        background-color: #aedff2;
+        width: 150px;
+        height: 150px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .ListTile:hover{
+        border: solid 3px;
+    }
+    
+    .ListTileHighlight{
+        background-color: #2196F3;
+    }
+    
+    
+    .dialog-row-container{
+        text-align: center;
+    }
+    #dialog-click-container {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.7);
+        width:100%;
+        height:100%;
+        z-index:610;
+        padding:0;
+        margin:0;
+        top:0;
+        left:0;
+        /* display: flex;
+        align-items: center; */
+    }
+    /* ############NeWProj################## */
+    #click-container-project {  
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.7);
+        width:100%;
+        height:100%;
+        z-index:620;
+        padding:0;
+        margin:0;
+        top:0;
+        left:0;
+        /* display: flex;
+        align-items: center; */
+    }
+    .createProjectDialog{
+        margin-top:20%;
+        width: 525px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 640;
+    }
+    .createProjectDialogTable {
+        border-style: solid;
+        border-radius: 2px;
+        display: inline-block;
+        background-color: #cad4e3dd;
+        background-origin: 5px;
+        padding: 5px;
+        width: 100%;
+        border: 0px;
+      }
+      .createProjectDialogTable tr {
+          height: 35px;
+      }
+
+      .createProjectDialogHeader {
+          background-color: #333333;
+          font-size: larger;
+          font-weight: bold;
+          text-align: center;
+          color: #FFF;
+      }
+    /* ############################## */
+
+/* ############################## */
+/* Project Box CSS */
+
+.project-btn {
+    border-radius: 2px;
+    height: 21px;
+    /*width: calc(25vw/2 - 60px);    */
+    width: 100%;
+    margin: 2px;
+}
+.proj-selector {
+    height: 21px;
+    margin: 2px;
+    margin-top: 20px;
+    z-index: 620;
+}
+
+.ListTile{
+    display: inline-block;
+    margin: 10px;
+    border: solid 1px;
+    border-radius: 5%;
+    border-style: dotted;
+    padding: 5px;
+    background-color: white;
+
+    width: 150px;
+    height: 150px;
+    /* width: calc(25vw /2 - 30px);
+    height: calc(25vw /2 - 30px); */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/********/
+
+/* Dataset box CSS */
+.dataset-selection {
+    border-radius: 2px;
+    height: 20px;
+    width: calc(25vw - 60px);
+}
+.dataset-btn {
+    border-radius: 2px;
+    height: 20px;
+    width: calc(25vw - 60px);    
+}
+.dialog-box{
+    margin-top: 20px;
+    position: absolute;
+    z-index: 610;
+}
+
+.dailog-fixed-height-container{
+    z-index: 611;
+    border-style: solid;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: #cad4e3dd;
+    min-width: '500px';
+    max-width: '1024px';
+    width: 60vw;
+    height: 50vh;
+    overflow: auto;
+    margin-top: 20vh;
+    margin-left: 20vw;
+} 
+
+
+.ListTile:hover{
+    border: solid 3px;
+}
+
+.ListTileHighlight{
+    background-color: #2196F3;
+}
+
+/* ############################## */
+/* .data-panel-container {
+    background: black;
+    width: 25vw;
+    z-index: 1;
+} */
+
+.datatool-container {
+    display: flex;
+}
+
+
+.datapanel-button {
+    border: 1px solid black;
+    border-radius: 4px;
+    height: 20px;
+    margin-left: 2px;
+    width: 20px;
+}
+
+.datapanel-button.save {
+    background: url('assets/save.png') 0px 0px / 18px no-repeat white;
+}
+
+.datapanel-button.save-as {
+    background: url('assets/save-as.png') 0px 0px / 18px no-repeat white;
+}
+
+.save-as-container {
+    left: calc(25vw + 5px);
+    top: 25px;
+    display: none;
+    position: absolute;
+    z-index: 440;
+}
+
+.dropdown-filter {
+    float: right;
+    margin-left: 2px;
+    height: 20px;
+    width: 20px;
+}
+
+.dropdown-filter .anchor {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    background: white;
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-filter .anchor:after {
+    position: absolute;
+    content: "";
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    padding: 2px 4px 4px 2px;
+    right: 6.5px;
+    top: 20%;
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+.dropdown-filter .anchor:active:after {
+    right: 7px;
+    top: 21%;
+}
+
+.dropdown-filter ul.filter-list {
+    padding: 2px;
+    display: none;
+    margin: 0px 5px 0px 0px;
+    color: white;
+    border: 1px solid #ccc;
+    float: right;
+    background: black;
+    position: absolute;
+    z-index: 430;
+}
+
+.dropdown-filter ul.filter-list {
+    list-style: none;
+}
+
+.filter-text {
+    margin: 4px;
+    line-height: initial;
+}
+
+.filter-item-container {
+    display: flex;
+    margin-left: 4px;
+}
+
+.filter-item {
+    margin: 0px 2px 0px 0px;
+}
+
+.search-bar {
+    height: 20px;
+    width: 100%;
+}
+
+.label-list {
+    height: calc(100% - 41px);
+}
+
+.label-display {
+    display: block;
+    color: white;
+    height: 18px;
+    overflow: hidden;
+    padding-left: 2px;
+    /*white-space: nowrap; Fix for label list width too wide*/
+    text-overflow: ellipsis;
+    width: 100%;
+    opacity: 1;
+}
+
+.label-display:hover {
+    opacity: 0.85;
+}
+
+.label-display.highlighted {
+    border: 1px dotted white;
+}
+
+.video-panel {
+    width: 75vw;
+    height: calc(50vh - 12.5px);
+    z-index: 200;
+}
+
+.pad-vertical {
+    width: 100%;
+}
+
+.pad-horizontal {
+    float: left;
+    height: 100%;
+}
+
+.central-pad {
+    height: 100%;
+    width: 75vw;
+    display: flex;
+}
+
+.video-controls-container {
+    height: calc(50vh - 12.5px);
+    opacity: 0;
+    position: absolute;
+    transition: 0.2s;
+    width: 75vw;
+    z-index: 211;
+    top: 25px;
+}
+
+.video-controls-container.zoom-out {
+    display: none;
+}
+
+.playrate-change {
+    height: calc(50vh - 12.5px); /* Minus toolbar height */
+    opacity: 0;
+    position: absolute;
+    transition: 0.3s;
+    width: 75vw;
+    z-index: 200;
+    padding-top: 20vh;
+    font-size: 101px;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 black;
+    top: 25px;
+}
+.playrate-change.zoom-out {
+    display: none;
+}
+
+.central-pad:hover .video-controls-container {
+    opacity: 1;
+}
+.central-pad:hover .playrate-change {
+    display: none;
+}
+
+.central-pad:hover .video-main {
+    opacity: 0.7;
+}
+
+.central-pad:hover .video-main.zoom-out {
+    opacity: 1;
+}
+
+.cropper {
+    background: #191919;
+    border: 0px;
+    border-spacing: 0px;
+    float: left;
+    margin: 0px;
+    overflow: hidden;
+    position: relative;
+    padding: 0px;
+    height: 100%;
+    width: unset;
+}
+
+.video-main {
+    opacity: 1;
+    background: black;
+    transition: 0.2s;
+    position: relative;
+}
+
+.video-main.zoom-out {
+    height: unset;
+    width: 100%;
+}
+
+.playrate-display {
+    border-bottom: 1px solid white;
+    color: white;
+    left: 40%;
+    opacity: 1;
+    position: absolute;
+    text-align: center;
+    text-shadow: 1px 1px black;
+    top: calc(50% - 75px);
+    width: 20%;
+    z-index: 250;
+}
+
+.video-buttons.zoom-out {
+    display: none;
+}
+
+.video-button {
+    border-radius: 50%;
+    opacity: 0.6;
+    position: absolute;
+    z-index: 250;
+    height: 40px;
+    width: 40px;
+}
+
+.video-button.rewind {
+    background: url('assets/rewind.png') 0px 0px / cover no-repeat white;
+    left: calc(35% - 20px);
+    top: calc(40% - 40px);
+}
+
+.video-button.fast-forward {
+    background: url('assets/fast_forward.png') 0px 0px / cover no-repeat white;
+    left: calc(65% - 20px);
+    top: calc(40% - 40px);
+}
+
+.video-button.big {
+    width: 100px;
+    height: 100px;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+}
+
+.play {
+    background: url('assets/play.png') 0px 0px / cover no-repeat white;
+}
+
+.pause {
+    background: url('assets/pause.png') 0px 0px / cover no-repeat white;
+}
+
+.video-button.skip-previous {
+    background: url('assets/skip_previous.png') 0px 0px / cover no-repeat white;
+    left: calc(35% - 20px);
+    top: calc(65% - 20px);
+}
+
+.video-button.skip-next {
+    background: url('assets/skip_next.png') 0px 0px / cover no-repeat white;
+    left: calc(65% - 20px);
+    top: calc(65% - 20px);
+}
+
+.video-current-info {
+    color: white;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 220;
+}
+
+.video-current {
+    display: table;
+    position: absolute;
+    bottom: 0%;
+    width: 33%;
+    height: 7.5%;
+    background: #88888888;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 3px;
+}
+
+.video-current.time {
+    left: 0%;
+}
+
+.video-current.frame {
+    right: 0%;
+}
+
+.text-info {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+}
+
+.selector-image {
+    margin-top: 5px;
+    margin-right: 5px;
+    opacity: 0.7;
+    position: absolute;
+    right: 0;
+    transition-duration: 0.3s;
+    width: 50px;
+}
+
+.selector-image:hover {
+    opacity: 1;
+}
+
+.selector-image:active {
+    transform: scale(0.95);
+}
+
+.selector-image-row {
+    display: flex;
+}
+
+.selector-image-content {
+    background: grey;
+    border: 2px solid black;
+}
+
+.selector-image-content.active {
+    background: #8B0000;
+}
+
+.camera-angle-selector {
+    display: none;
+    height: 100%;
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 240;
+}
+
+.keypoints-container.zoom-out {
+    display: none;
+}
+
+.camera-angle-selector.zoom-out {
+    display: block;
+}
+
+.camera-angle-selector-selection {
+    box-sizing: border-box;
+    display: inline-block;
+    z-index: 240;
+}
+
+.camera-angle-selector-selection:hover {
+    border: 1px solid #663A82;
+    box-shadow: inset 0px 0px 15px white;
+}
+
+.main-screen {
+    background: #191919;
+    display: flex;
+    width: 100vw;
+    height: calc(50vh - 12.5px);
+}
+
+/* TODO */
+.blocker {
+    background: #333333cc;
+    display: table;
+    color: white;
+    font-size: 2vw;
+    height: 100vh;
+    position: absolute;
+    text-align: center;
+    width: 100vw;
+    top: 0px;
+    z-index: 5;
+}
+.blocker-text {
+    padding-right: 75%;
+    padding-bottom: 25%;
+}
+
+.video-generator {
+    display: none;
+}
+
+.video-preview {
+    position: absolute;
+}
+
+.preview-mouse-move {
+    transition: opacity 0.2s;
+    position: absolute;
+    bottom: calc(7.5% + 25px);
+}
+
+.video-current-info>.preview-mouse-move {
+    bottom: calc(7.5% + 25px);
+    opacity: 0;
+}
+
+.preview-container {
+    border-radius: 3px;
+    box-shadow: 0px 0px 0px 2px white;
+    margin-left: -50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 700;
+}
+
+.preview-time {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 2px;
+    color: white;
+    display: table;
+    height: 25px;
+    left: calc(50% - 40px);
+    position: absolute;
+    width: 80px;
+}
+
+.scrubber-panel {
+    height: 15px;
+    margin-left: 10px;
+    position: absolute;
+    bottom: 7.5%;
+    width: calc(100% - 20px);
+}
+
+.scrubber-container {
+    height: 5px;
+    margin-top: 5px;
+    position: relative;
+    z-index: 260;
+}
+
+.scrubber-bar {
+    height: 5px;
+    pointer-events: none;
+    width: 100%;
+    background: grey;
+}
+
+.scrubber-white {
+    height: inherit;
+    background: white;
+}
+
+.scrubber-red {
+    height: inherit;
+    background: red;
+    position: absolute;
+}
+
+.video-interval-container {
+    display: block;
+    position: relative;
+    z-index: 700;
+}
+
+.time-box.container {
+    opacity: 0;
+    transition: opacity 0.2s;
+    position: absolute;
+}
+
+.scrubber-panel:hover~.preview-mouse-move,
+.scrubber-panel:hover .time-box.container {
+    opacity: 1;
+}
+
+.time-button {
+    padding: 0px;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    top: -5px;
+    position: absolute;
+    z-index: 700;
+}
+
+.time-button.dec-interval {
+    background: url('assets/zoom_out_button.png') -2px -2px / 30px no-repeat white;
+    left: calc(0% - 25px);
+}
+
+.time-button.inc-interval {
+    background: url('assets/zoom_in_button.png') -2px -2px / 30px no-repeat white;
+    right: calc(0% - 25px);
+}
+
+.time-box.interval {
+    border: 1px solid white;
+    height: 20px;
+    left: -50%;
+    position: absolute;
+    top: -2.5px;
+    width: 100%;
+    z-index: 700;
+}
+
+.red-dot {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+    margin-left: -7.5px;
+}
+
+.timeline-panel {
+    left: 50vw;
+    position: absolute;
+    z-index: 181;
+    background: red;
+    width: 2px;
+    max-height: calc(50vh - 12.5px);
+    height: 81.25px;
+}
+
+.top-arrow {
+    border-width: 10px;
+    border-style: solid;
+    border-color: red transparent transparent;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    margin-left: -9px;
+}
+
+.bottom-arrow {
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent red;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    margin-left: -9px;
+    bottom: 0px;
+}
+
+.ghost-panel {
+    position: absolute;
+    height: 81.25px;
+    top: unset;
+    width: 100vw;
+    z-index: 182;
+}
+
+.ghost-panel .fullscreen {
+    height: 100vh;
+    top: 0%;
+    z-index: 171;
+}
+
+.data-display-panel>.preview-mouse-move {
+    opacity: 1;
+}
+
+.frame-canvas-container {
+    display: flex;
+}
+
+.frame-canvasses {
+    display: flex;
+}
+
+.frame-canvas {
+    background: #191919;
+}
+
+.padder {
+    flex: 0 0 50vw;
+    background: #191919;
+}
+
+.track-panel {
+    color: white;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 20px;
+    transition: 0.5s;
+    width: 20px;
+    z-index: 100;
+}
+
+.track-panel.display {
+    width: 200px;
+}
+
+.track-panel:hover {
+    width: 200px;
+}
+
+.labels-panel {
+    overflow: scroll;
+    position: relative;
+    z-index: 180;
+}
+
+.label-container {
+    position: relative;
+}
+
+.anchor-container {
+    position: relative;
+}
+
+.ghost-editor {
+    position: relative;
+    left: 50vw;
+}
+
+.ghost-container {
+    position: relative;
+}
+
+.label-replica {
+    position: absolute;
+}
+
+.label-ghost {
+    cursor: pointer;
+    position: absolute;
+    z-index: 170;
+}
+
+.label-ghost:hover~.label-replica {
+    opacity: 0.7;
+}
+
+.time-displayer {
+    background: white;
+    border-radius: 3px;
+    line-height: 1.8;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    transition: 0.5s;
+    /*top: -1px;*/
+    overflow: hidden;
+    padding-left: 2px;
+    z-index: 160;
+    width: 2px;
+}
+
+.time-displayer.start {
+    left: -2px;
+}
+
+.left-arrow {
+    position: absolute;
+    z-index: 160;
+    border-top-color: transparent;
+    border-right-color: white;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transition: 0.5s;
+    border-style: solid;
+    /*top: -1px;*/
+    left: -22px;
+}
+
+.label-ghost.left:hover~div>.time-displayer.start {
+    width: 100px;
+    left: -100px;
+}
+
+.label-ghost.left:hover~div>.left-arrow {
+    left: -118px;
+}
+
+.time-displayer.end {
+    right: -2px;
+}
+
+.right-arrow {
+    position: absolute;
+    z-index: 160;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: white;
+    border-bottom-color: transparent;
+    transition: 0.5s;
+    border-style: solid;
+    /*top: -1px;*/
+    right: -22px;
+}
+
+.label-ghost.right:hover~div>.time-displayer.end {
+    width: 100px;
+    right: -100px;
+}
+
+.label-ghost.right:hover~div>.right-arrow {
+    right: -118px;
+}
+
+.editor-lines {
+    display: flex;
+    height: 0px;
+    position: relative;
+    z-index: 190;
+}
+
+.left-line {
+    border: 1px dotted white;
+}
+
+.right-line {
+    border: 1px dotted white;
+    position: absolute;
+    right: 0%;
+}
+
+.track-info-panel {
+    position: fixed;
+    z-index: 175;
+}
+
+.track-info-button {
+    border: 0px;
+    border-radius: 0px 10px 10px 0px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    width: 10px;
+    z-index: 176;
+}
+
+.track-info-button:hover {
+    width: 15px;
+}
+
+.track-panel.active {
+    border: 1px solid white;
+}
+
+.track-creator-panel {
+    width: 0vw;
+    height: 30px;
+    position: fixed;
+    z-index: 180;
+}
+
+.track-creator-add {
+    height: 30px;
+    background: #191919;
+    position: absolute;
+    width: 200px;
+}
+
+.track-creator-padder {
+    width: calc(100vw - 200px);
+    height: 30px;
+    background: black;
+    position: absolute;
+    right: 0px;
+}
+
+.track-creator-button {
+    background: url("/static/assets/add.png") rgba(0, 0, 0, 0) 0px 0px / cover no-repeat;
+    border: none;
+    float: right;
+    height: 30px;
+    right: 0px;
+    top: 0px;
+    width: 30px;
+}
+
+.color-wheel {
+    bottom: 0px;
+    display: none;
+    left: 210px;
+    position: absolute;
+    z-index: 181;
+}
+
+.add-track-input {
+    background: rgba(0, 0, 0, 0.7);
+    border: rgba(255, 255, 255, 0.5) solid 1px;
+    color: #FFFFFF;
+    float: left;
+    font-size: 18px;
+    height: 26px;
+    margin: 2px 0px 0px 20px;
+    width: 145px;
+}
+
+
+
+
+
+
+
+
+
+.data-display-panel {
+    overflow: scroll hidden;
+    position: static;
+    width: 100vw;
+    height: calc(50vh - 12.5px);
+}
+
+.checkmark {
+    float: right;
+    margin-right: 75px;
+    margin-top: -30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.type-container {
+    display: flex;
+    background: #191919;
+}
+
+
+.label-react {
+    color: white;
+    overflow: hidden;
+    padding: 2px;
+    position: absolute;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+.anchor {
+    color: white;
+    overflow: hidden;
+    padding: 2px;
+    position: absolute;
+    text-align: center;
+    text-overflow: ellipsis;
+    height: 20px;
+    top: 0px;
+    width: 1px;
+}
+
+
+.speedlabel-container {
+    /**
+     * Height       : Speed label height.
+     * Left         : Speed label left position.
+     * Position     : Relative.
+     */
+    left: 50vw;
+    position: relative;
+}
+
+.speed-labeler {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 0px;
+    height: 20px;
+    z-index: 160;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+
+.frames-container {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+button {
+    text-align: center;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button:hover {
+    opacity: 0.75;
+}
+
+button:active {
+    background-color: rgb(208, 211, 255);
+    transform: translateY(2px);
+}
+
+.menu {
+    width: 180px;
+    box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 800;
+}
+
+.menu .menu-options {
+    list-style: none;
+    padding: 5px 1px;
+    background: white;
+    transform: rotate(0deg);
+    overflow: visible;
+}
+
+.menu .menu-options .menu-option {
+    font-size: 10px;
+    padding-top: 2px;
+    padding-left: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.menu .menu-options .menu-option:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.paste:hover .paste-menu{
+    display: block;
+}
+
+.paste-menu{
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: auto;
+}
+
+/* .edit-paste .paste-menu {
+    bottom: 20%;
+} 
+
+.add-paste .paste-menu {
+    bottom: 10%;
+} */
+
+.label-highlight {
+    filter: brightness(1.4);
+}
+
+.menu-option.label-option {
+    color: 'white';
+}
+
+.menu-option.label-option:hover {
+    filter: brightness(0.4);
+}
+
+.cut-label {
+    border-style:dashed;
+    border-width: 2px 2px;
+}
+
+.dim-label {
+    filter: brightness(0.75);
+}
+
+.copy-label {
+    border-style: dotted;
+    border-width: 2px 2px;
+}
+
+.ghost-label {
+    opacity: 0.6;
+}
+
+video::-webkit-media-controls-timeline {
+    display: none;
+}
+
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-clear-button {
+    -webkit-appearance: none;
+}
+
+
+
+/* Adding to remove annoying selected outline when a button is pressed */
+
+*:focus {
+    outline: 0 !important;
+}
+
+
+/****** SCROLL BAR ******/
+
+
+/* Customize website's scrollbar like Mac OS. Is not supported in Firefox and IE */
+
+
+/* total width */
+
+.scrollbar::-webkit-scrollbar {
+    background-color: #fff;
+    width: 5px
+}
+
+
+/* background of the scrollbar except button or resizer */
+
+.scrollbar::-webkit-scrollbar-track {
+    background-color: #fff
+}
+
+.scrollbar::-webkit-scrollbar-track:hover {
+    background-color: #f4f4f4
+}
+
+
+/* scrollbar itself */
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: #666666;
+    border-radius: 5px;
+    border: 1px solid #fff
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #666666;
+    border: 1px solid #f4f4f4
+}
+
+
+/* set button(top and bottom of the scrollbar) */
+
+.scrollbar::-webkit-scrollbar-button {
+    display: none
+}
+
+
+/* div box */
+
+.scrollbar {
+    overflow-y: scroll;
+    overflow-x: hidden
+}
+
+.resizable {
+    background: white;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.resizable .resizers {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #4286f4;
+    box-sizing: border-box;
+}
+
+.resizable .resizers .resizer {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /*magic to turn square into circle*/
+    background: white;
+    border: 3px solid #4286f4;
+    position: absolute;
+}
+
+.resizable .resizers .resizer.top-left {
+    left: -5px;
+    top: -5px;
+    cursor: nwse-resize;
+    /*resizer cursor*/
+}
+
+.resizable .resizers .resizer.top-right {
+    right: -5px;
+    top: -5px;
+    cursor: nesw-resize;
+}
+
+.resizable .resizers .resizer.bottom-left {
+    left: -5px;
+    bottom: -5px;
+    cursor: nesw-resize;
+}
+
+.resizable .resizers .resizer.bottom-right {
+    right: -5px;
+    bottom: -5px;
+    cursor: nwse-resize;
+}
+
+.btn {
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.label-list-highlight-on {
+    border: 1px dotted white;
+}
+
+
+.pinpoint-div {
+    box-sizing: 'content-box';
+    background: transparent;
+    border: 1px solid white;
+    box-sizing: content-box;
+    position: absolute;
+    z-index: 190;
+}
+
+.box-2 {
+    border: 3px solid yellow;
+    z-index: 191;
+    top: -2px;
+}

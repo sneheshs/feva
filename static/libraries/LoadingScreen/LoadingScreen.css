@@ -1,0 +1,32 @@
+.loading-screen {
+    background: #00000088;
+    height: 100%;
+    left: 0px;
+    padding-top: calc(50vh - 23px);
+    position: absolute;
+    text-align: -webkit-center;
+    top: 0px;
+    width: 100%;
+    z-index: 700;
+}
+
+.progress-bar-container {
+    background-color: #D0D0D088;
+    border-radius: 2px;
+    height: 4vh;
+    margin-top: 5px;
+    width: 50%;
+}
+
+.progress-bar {
+    color: white;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 100%;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 0.7%;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
