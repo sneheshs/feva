@@ -37,8 +37,21 @@ If all of these run without any errors, your FEVA is ready to use.
 2. Then go to your browser and load URL: http://localhost:8000 (If your computer has the port `8000` firewalled, you can specify the `port` number when starting FEVA, here is an example with `port` as `5000`: `python feva.py --port 5000`. Then you'd load http://localhost:5000.
 
 
-## Tutorial
+### Tutorial
 
 You can watch a quick start guide video here: Coming soon.
 
 
+### Citation
+
+If you use this tool or code in your research, please cite our work:
+
+```
+@article{shrestha2023feva,
+  title={FEVA: Fast Event Video Annotation Tool},
+  author={Shrestha, Snehesh and Sentosatio, William and Peng, Huiashu and 
+           Fermuller, Cornelia and Aloimonos, Yiannis},
+  journal={arXiv preprint arXiv:2301.00482},
+  year={2023}
+}
+```
