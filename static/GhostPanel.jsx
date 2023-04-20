@@ -130,20 +130,30 @@ class GhostPanelManager {
         window.clearTimeout(this.scrolling);
         // 3. If CTRL is held
         if (e.ctrlKey) {
-            // 3.1. Scroll up 
-            if (e.deltaY < 0) {
-                // 3.1.1. Increase interval
-                variableManager.configs('VALUE_INTERVAL', variableManager.config.VALUE_INTERVAL + 1);
-            } else {
-                // 3.1.2. Decrease interval
-                variableManager.configs('VALUE_INTERVAL', variableManager.config.VALUE_INTERVAL - 1);
+            // Check for min and max
+            if (e.deltaY > 0 && Math.pow(2, parseInt(variableManager.config.VALUE_INTERVAL) - 1) < 0.5)
+            {}
+            else if( e.deltaY < 0 && Math.pow(2, parseInt(variableManager.config.VALUE_INTERVAL) + 1) > 128)
+            {}
+            else
+            {
+                console.log(e.deltaY);
+                // 3.1. Scroll up 
+                if (e.deltaY < 0) {
+                    // 3.1.1. Increase interval
+                    variableManager.configs('VALUE_INTERVAL', parseInt(variableManager.config.VALUE_INTERVAL) + 1);
+                } else {
+                    // 3.1.2. Decrease interval
+                    variableManager.configs('VALUE_INTERVAL', parseInt(variableManager.config.VALUE_INTERVAL) - 1);
+                }
+                
+                // 3.2. Change option text.
+                $('.option-font.value.interval').text(Math.pow(2, parseInt(variableManager.config.VALUE_INTERVAL)));
+                // 3.3. Change slider value.
+                $('.slider-interval').val(variableManager.config.VALUE_INTERVAL);
+                // 3.4. Run slider function.
+                interfaceManager.toolbarManager.sliders.interval.func();
             }
-            // 3.2. Change option text.
-            $('.option-font.value.interval').text(Math.pow(2, variableManager.config.VALUE_INTERVAL));
-            // 3.3. Change slider value.
-            $('.slider-interval').val(variableManager.config.VALUE_INTERVAL);
-            // 3.4. Run slider function.
-            interfaceManager.toolbarManager.sliders.interval.func();
         }
         // 4. Else if not
         else {
