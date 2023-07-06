@@ -23,6 +23,7 @@ Video Annotation is a crucial process in computer science and social science ali
 
 
 ### Prerequisite:
+<a name="prereq"/>
 
 1. `Python 3.5.x or later` : Tested and verified. While this code should work with any Python version, some dependencies packages may break compatibility. Please file an issue if you find that FEVA has issues running with a particular python version.
 
@@ -32,6 +33,7 @@ Video Annotation is a crucial process in computer science and social science ali
 
 
 ### Installation:
+<a name="install"/>
 
 This installation assumes that you have all the prerequisite requirements met.
 1. Clone this repo.
