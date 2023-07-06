@@ -1,14 +1,13 @@
 #### Table of Contents
-- [Intro](#intro)
-- [Abstract](#desc)
-- [Prerequisite](#prereq)
-- [Installation](#install)
+- [Intro](#feva)
+- [Abstract](#description)
+- [Prerequisite](#prerequisite)
+- [Installation](#installation)
 - [Tutorial](#tutorial)
 - [Usage](#usage)
-- [Citation](#cite)
+- [Citation](#citation)
 
 # FEVA
-<a name="intro"/>
 
 Fast Event Video Annotation, FEVA, is a video annotation tool with streamlined interaction techniques and a dynamic interface that makes labeling tasks easy and fast. FEVA focuses on speed, accuracy, and simplicity to make annotation quick, consistent, and straightforward.
 
@@ -19,13 +18,11 @@ Details of the tool, design choices, and comparison with other tools are in our 
 
 
 ### Description:
-<a name="desc"/>
 
 Video Annotation is a crucial process in computer science and social science alike. Many video annotation tools (VATs) offer a wide range of features for making annotation possible. We conducted an extensive survey of over 59 VATs and interviewed interdisciplinary researchers to evaluate the usability of VATs. Our findings suggest that most current VATs have overwhelming user interfaces, poor interaction techniques, and difficult-to-understand features. These often lead to longer annotation time, label inconsistencies, and user fatigue. We introduce FEVA, a video annotation tool with streamlined interaction techniques and a dynamic interface that makes labeling tasks easy and fast. FEVA focuses on speed, accuracy, and simplicity to make annotation quick, consistent, and straightforward. For example, annotators can control the speed and direction of the video and mark the onset and the offset of a label in real time with single key presses. In our user study, FEVA users, on average, require 36% less interaction than the most popular annotation tools (Advene, ANVIL, ELAN, VIA, and VIAN). The participants (N=32) rated FEVA as more intuitive and required less mental demand. You can learn more about the FEVA in our website [https://www.snehesh.com/feva](https://www.snehesh.com/feva).
 
 
 ### Prerequisite:
-<a name="prereq"/>
 
 1. `Python 3.5.x or later` : Tested and verified. While this code should work with any Python version, some dependencies packages may break compatibility. Please file an issue if you find that FEVA has issues running with a particular python version.
 
@@ -35,7 +32,6 @@ Video Annotation is a crucial process in computer science and social science ali
 
 
 ### Installation:
-<a name="install"/>
 
 This installation assumes that you have all the prerequisite requirements met.
 1. Clone this repo.
@@ -46,20 +42,17 @@ If all of these run without any errors, your FEVA is ready to use.
 
 
 ### Usage:
-<a name="usage"/>
 
 1. To run FEVA, type `python3 feva.py`
 2. Then go to your browser and load URL: http://localhost:8000 (If your computer has the port `8000` firewalled, you can specify the `port` number when starting FEVA, here is an example with `port` as `5000`: `python feva.py --port 5000`. Then you'd load http://localhost:5000.
 
 
 ### Tutorial
-<a name="tutorial"/>
 
 You can watch a quick start guide video here: Coming soon.
 
 
 ### Citation
-<a name="cite"/>
 
 If you use this tool or code in your research, please cite our work:
 
