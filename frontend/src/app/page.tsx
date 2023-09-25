@@ -1,7 +1,9 @@
-import Image from 'next/image'
+'use client'
+
+import MainScreen from "@/components/mainscreen"
 
 export default function Home() {
     return (
-        <div></div>
+        <MainScreen></MainScreen>
     )
 }

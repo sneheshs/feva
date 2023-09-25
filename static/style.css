@@ -12,48 +12,10 @@ body {
     padding: 0px;
 }
 
-.tool-bar {
-    background: #FFFFFF;
-    display: flex;
-    height: 25px;
-    width: 100vw;
-}
-
-.toobar-logo-and-project {
-    width: 25vw;
-    display: flex;
-
-}
-
-.toolbar-logo{
-    margin: 2px;
-}
-
-.select-project-container {
-    width: 100%;
-}
-
 .select-dataset-container {
 
 }
 
-.toolbar-button {
-    padding: 0px;
-    border-radius: 0px;
-    border: 0px;
-    height: 21px;
-    width: 21px;
-}
-
-.toolbar-button.undo {
-    margin-left: 2px;
-    background: url('assets/undo.png') 0px 0px / cover no-repeat white;
-}
-
-.toolbar-button.redo {
-    margin-left: 2px;
-    background: url('assets/redo.png') 0px 0px / cover no-repeat white;
-}
 
 .toolbar-button.import {
       margin-left: 2px;
@@ -70,9 +32,6 @@ option[value=""][disabled] {
         display: none;
 }
 
-.tool-icon-container {
-    margin: 2px;
-}
 
 /**
     Notification box

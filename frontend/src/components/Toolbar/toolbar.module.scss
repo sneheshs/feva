@@ -1,0 +1,22 @@
+.toolbarButtons {
+    > button {
+        padding: 0px;
+        border-radius: 5%;
+        border: 0px;
+        height: auto;
+        width: auto;
+        &:hover {
+            scale: 1.1;
+            box-shadow: 0 0 3px 1px black;
+        }
+    }
+    
+    > .undoButton {
+        background: url('/assets/undo.png') 0px 0px / cover no-repeat white;
+    }
+
+    > .redoButton {
+        background: url('/assets/redo.png') 0px 0px / cover no-repeat white;
+    }
+}
+
