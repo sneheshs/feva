@@ -172,7 +172,7 @@ def loadProject(project_name):
 
 def create_thumbnail_and_preview(project_name, extension):
     if not os.path.exists(root_data_path + project_name + '/' + project_name + '_generator.' + extension):
-        cmd = "ffprobe -v quiet -print_format json -show_streams " + os.getcwd() + "/static/data/" + project_name + "/" + project_name + '.' + extension
+        cmd = "./ffprobe -v quiet -print_format json -show_streams " + os.getcwd() + "/static/data/" + project_name + "/" + project_name + '.' + extension
         results = os.popen(cmd).read()
         metadata = json.loads(results)
         print(metadata)
@@ -186,11 +186,11 @@ def create_thumbnail_and_preview(project_name, extension):
         # Create Thumbnails
         # PORTRAIT
         if height>width:
-            cmd = 'ffmpeg -i ' + root_data_path + project_name + '/' + project_name + '.' + extension + ' -filter:v scale=200:-1 ' + root_data_path + project_name + '/temp_' + project_name + '.' + extension
+            cmd = './ffmpeg -i ' + root_data_path + project_name + '/' + project_name + '.' + extension + ' -filter:v scale=200:-1 ' + root_data_path + project_name + '/temp_' + project_name + '.' + extension
         
         # LANDSACPE
         else:
-            cmd = 'ffmpeg -i ' + root_data_path + project_name + '/' + project_name + '.' + extension + ' -filter:v scale=202:-1 ' + root_data_path + project_name + '/temp_' + project_name + '.' + extension
+            cmd = './ffmpeg -i ' + root_data_path + project_name + '/' + project_name + '.' + extension + ' -filter:v scale=202:-1 ' + root_data_path + project_name + '/temp_' + project_name + '.' + extension
         
         results = os.popen(cmd).read()
         # TODO: Check if the file was created successfully
@@ -202,7 +202,7 @@ def create_thumbnail_and_preview(project_name, extension):
     if not os.path.exists(root_data_path + project_name + '/' + project_name + '_thumbnail.gif'):
         # Create Preview Gifs
         # -v quiet -print_format json
-        cmd = 'ffmpeg -i ' + root_data_path + project_name + '/' + project_name + '.' + extension + ' -vf "setpts=N/TB/1000" -r 2 -loop 0 ' + root_data_path + project_name + '/temp_' + project_name + '_thumbnail.gif'
+        cmd = './ffmpeg -i ' + root_data_path + project_name + '/' + project_name + '.' + extension + ' -vf "setpts=N/TB/1000" -r 2 -loop 0 ' + root_data_path + project_name + '/temp_' + project_name + '_thumbnail.gif'
         results = os.popen(cmd).read()
     
         if os.path.exists(root_data_path + project_name + '/temp_' + project_name + '_thumbnail.gif'):
@@ -319,7 +319,7 @@ def createNewProject(project_name, dataset_name):
 # Check if video has audio or not -- Prefeq ffmpeg/ ffprobe
 @app.route('/checkAudioExist/<video_name>')
 def checkAudioExist(video_name):
-    cmd = "ffprobe -show_streams " + os.getcwd() + "/static/" + video_name
+    cmd = "./ffprobe -show_streams " + os.getcwd() + "/static/" + video_name
     # args = shlex.split(cmd)
     # args.append(os.getcwd() + "/static/" + video_name)
     # print(args)
@@ -330,7 +330,7 @@ def checkAudioExist(video_name):
 # USE getVideoMetaData includes FPS
 # @app.route('/getFPS/<video_name>')
 # def getFPS(video_name):
-#     cmd = "ffprobe -v quiet -print_format json -show_streams " + os.getcwd() + "/static/data/" + video_name + "/" + video_name + '.mp4'
+#     cmd = "./ffprobe -v quiet -print_format json -show_streams " + os.getcwd() + "/static/data/" + video_name + "/" + video_name + '.mp4'
 #     results = os.popen(cmd).read()
 #     metadata = json.loads(results)
 #     fps = eval(metadata['streams'][0]['r_frame_rate'])
@@ -338,7 +338,7 @@ def checkAudioExist(video_name):
 
 @app.route('/getVideoMetadata/<video_name>')
 def getVideoMetadata(video_name):
-    cmd = "ffprobe -v quiet -print_format json -show_streams " + os.getcwd() + "/static/data/" + video_name + "/" + video_name + '.mp4'
+    cmd = "./ffprobe -v quiet -print_format json -show_streams " + os.getcwd() + "/static/data/" + video_name + "/" + video_name + '.mp4'
     results = os.popen(cmd).read()
     metadata = json.loads(results)
     # print(results)
