@@ -170,9 +170,9 @@ def loadProject(project_name):
     
     return jsonify(response.getResponse())
 
-def create_thumbnail_and_preview(project_name, extension):
+def create_thumbnail_and_preview(project_name, extension="mp4"):    
     if not os.path.exists(root_data_path + project_name + '/' + project_name + '_generator.' + extension):
-        cmd = "./ffprobe -v quiet -print_format json -show_streams " + os.getcwd() + "/static/data/" + project_name + "/" + project_name + '.' + extension
+        cmd = './ffprobe -v quiet -print_format json -show_streams "' + root_data_path + project_name + '/' + project_name + '.' + extension + '"' 
         results = os.popen(cmd).read()
         metadata = json.loads(results)
         print(metadata)
@@ -186,11 +186,11 @@ def create_thumbnail_and_preview(project_name, extension):
         # Create Thumbnails
         # PORTRAIT
         if height>width:
-            cmd = './ffmpeg -i ' + root_data_path + project_name + '/' + project_name + '.' + extension + ' -filter:v scale=200:-1 ' + root_data_path + project_name + '/temp_' + project_name + '.' + extension
+            cmd = './ffmpeg -i "' + root_data_path + project_name + '/' + project_name + '.' + extension + '" -filter:v scale=200:-1 "' + root_data_path + project_name + '/temp_' + project_name + '.' + extension + '"'
         
         # LANDSACPE
         else:
-            cmd = './ffmpeg -i ' + root_data_path + project_name + '/' + project_name + '.' + extension + ' -filter:v scale=202:-1 ' + root_data_path + project_name + '/temp_' + project_name + '.' + extension
+            cmd = './ffmpeg -i "' + root_data_path + project_name + '/' + project_name + '.' + extension + '" -filter:v scale=202:-1 "' + root_data_path + project_name + '/temp_' + project_name + '.' + extension + '"'
         
         results = os.popen(cmd).read()
         # TODO: Check if the file was created successfully
@@ -202,7 +202,7 @@ def create_thumbnail_and_preview(project_name, extension):
     if not os.path.exists(root_data_path + project_name + '/' + project_name + '_thumbnail.gif'):
         # Create Preview Gifs
         # -v quiet -print_format json
-        cmd = './ffmpeg -i ' + root_data_path + project_name + '/' + project_name + '.' + extension + ' -vf "setpts=N/TB/1000" -r 2 -loop 0 ' + root_data_path + project_name + '/temp_' + project_name + '_thumbnail.gif'
+        cmd = './ffmpeg -i "' + root_data_path + project_name + '/' + project_name + '.' + extension + '" -vf "setpts=N/TB/1000" -r 2 -loop 0 "' + root_data_path + project_name + '/temp_' + project_name + '_thumbnail.gif' + '"'
         results = os.popen(cmd).read()
     
         if os.path.exists(root_data_path + project_name + '/temp_' + project_name + '_thumbnail.gif'):
