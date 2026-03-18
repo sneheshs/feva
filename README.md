@@ -48,6 +48,11 @@ If all of these run without any errors, your FEVA is ready to use.
 1. To run FEVA, type `python3 feva.py`
 2. Then go to your browser and load URL: http://localhost:8000 (If your computer has the port `8000` firewalled, you can specify the `port` number when starting FEVA, here is an example with `port` as `5000`: `python feva.py --port 5000`. Then you'd load http://localhost:5000.
 
+### Usage with Docker:
+1. Build the Docker image with `docker build . -t feva`
+2. Run the image with `docker run -it --rm -p 5000:5000 feva`
+3. Go to `127.0.0.1:5000` in a browser on the host machine. 
+
 
 ### Tutorial
 
